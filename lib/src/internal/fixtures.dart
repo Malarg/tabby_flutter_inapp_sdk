@@ -1,6 +1,6 @@
 import 'package:tabby_flutter_inapp_sdk/tabby_flutter_inapp_sdk.dart';
 
-final defaultMerchantUrls = MerchantUrls(
+const defaultMerchantUrls = MerchantUrls(
   success: 'https://checkout.tabby.ai/success.html',
   failure: 'https://checkout.tabby.ai/failure.html',
   cancel: 'https://checkout.tabby.ai/cancel.html',

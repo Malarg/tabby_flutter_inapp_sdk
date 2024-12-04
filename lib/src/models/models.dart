@@ -338,7 +338,7 @@ class OrderHistoryItem {
 }
 
 class MerchantUrls {
-  MerchantUrls({
+  const MerchantUrls({
     required this.success,
     required this.failure,
     required this.cancel,
@@ -414,19 +414,20 @@ class TabbyCheckoutPayload {
     required this.merchantCode,
     required this.lang,
     required this.payment,
+    this.merchantUrls = defaultMerchantUrls,
   });
 
   final String merchantCode; // 'ae' | 'sa',
   final Lang lang; // 'en' | 'ar,
   final Payment payment;
-  final merchantUrls = Platform.isIOS ? defaultMerchantUrls : null;
+  final MerchantUrls? merchantUrls;
 
   Map<String, dynamic> toJson() {
     return {
       'merchant_code': merchantCode,
       'lang': lang.name,
       'payment': payment,
-      'merchant_urls': merchantUrls,
+      'merchant_urls': Platform.isIOS ? merchantUrls : null,
     };
   }
 }
